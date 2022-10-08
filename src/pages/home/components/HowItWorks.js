@@ -20,10 +20,12 @@ const HowItWorks = () => {
         mb={6}
       >
         <Icon as={icon} w='80px' h='80px' />
-        <Text mt={5} fontFamily='h' as='b'>
+        <Text textAlign='center' mt={5} fontFamily='h' as='b'>
           {title}
         </Text>
-        <Text fontFamily='p'>{content}</Text>
+        <Text textAlign='center' fontFamily='p'>
+          {content}
+        </Text>
       </Box>
     );
   };
@@ -31,6 +33,7 @@ const HowItWorks = () => {
   return (
     <Flex alignItems='center' direction='column' justifyContent='center'>
       <Flex
+        shadow='2xl'
         bgColor='brand.200'
         w={{ base: '90%', lg: '85%' }}
         borderRadius='2xl'

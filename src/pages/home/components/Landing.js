@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web/build/player/lottie_light';
-import animation from '../animations/cleaning.json';
+import animation from '../assets/animations/cleaning.json';
 
 const Landing = ({ quoteRef }) => {
   const animationInstance = useRef(null);
@@ -11,15 +11,20 @@ const Landing = ({ quoteRef }) => {
   };
 
   useEffect(() => {
-    lottie.loadAnimation({
+    const animationData = JSON.stringify(animation);
+    const anim = lottie.loadAnimation({
       container: animationInstance.current,
-      animationData: animation,
+      animationData: JSON.parse(animationData),
       renderer: 'svg',
       loop: true,
       autoplay: true,
     });
-
-    return () => (animationInstance.current = null);
+    return () => {
+      anim.stop();
+      anim.destroy();
+      lottie.stop();
+      lottie.destroy();
+    };
   }, []);
 
   return (

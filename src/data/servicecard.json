@@ -9,7 +9,7 @@
     "id": 2,
     "title": "WINDOW CLEANING",
     "content": "For those filthy high-rise windows, hire our window cleaners to reinvent the look of your windows and give them a spick & span makeover.",
-    "image": "images/office.jpg"
+    "image": "images/window.jpg"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "id": 6,
     "title": "HOUSE CLEANING",
     "content": "Your residential property deserves a thorough, extensive house cleaning every month or so to keep it. Looking fresh and welcoming for you as well as your guests.",
-    "image": "images/office.jpg"
+    "image": "images/house.png"
   },
   {
     "id": 7,
@@ -69,7 +69,7 @@
     "id": 12,
     "title": "INDUSTRIAL CLEANING",
     "content": "Your industrial floors go through heavy wear and tear every day. Cater to their needs with our floor strip and polishing experts at work at Epic Cleaning Services.",
-    "image": "images/office.jpg"
+    "image": "images/industrial.png"
   },
   {
     "id": 13,

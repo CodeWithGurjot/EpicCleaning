@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import lottie from 'lottie-web/build/player/lottie_light';
-import animation from '../animations/contact.json';
+import animation from '../assets/animations/contact.json';
+import emailjs from '@emailjs/browser';
 import {
   Box,
   Button,
@@ -12,27 +13,19 @@ import {
   FormLabel,
   Input,
   Text,
+  Textarea,
+  useToast,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 const QuoteForm = ({ quoteRef }) => {
   const animationInstance = useRef(null);
+  const form = useRef();
 
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: animationInstance.current,
-      animationData: animation,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-    });
-
-    return () => (animationInstance.current = null);
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   const phoneRegEx =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
   const schema = yup
     .object({
       name: yup.string().required('This feild is Required'),
@@ -56,26 +49,74 @@ const QuoteForm = ({ quoteRef }) => {
   const {
     handleSubmit,
     register,
-    formState: { errors, isSubmitting },
+    reset,
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(values) {
-    alert(JSON.stringify(values));
-  }
+  useEffect(() => {
+    const animationData = JSON.stringify(animation);
+    const anim = lottie.loadAnimation({
+      container: animationInstance.current,
+      animationData: JSON.parse(animationData),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+    });
+    return () => {
+      anim.stop();
+      anim.destroy();
+      lottie.stop();
+      lottie.destroy();
+    };
+  }, []);
 
-  const onError = (error) => {
-    console.log(error);
-  };
+  const toast = useToast();
+
+  function onSubmit() {
+    setLoading(true);
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          reset();
+          toast({
+            title: 'Mail Successfully Sent',
+            description: "We'll Get in touch Soon!",
+            status: 'success',
+            duration: 6000,
+            isClosable: true,
+            position: 'bottom-left',
+          });
+          setLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          toast({
+            title: 'An Error Occured',
+            status: 'error',
+            duration: 4000,
+            isClosable: true,
+            position: 'top',
+          });
+          setLoading(false);
+        },
+      );
+  }
 
   return (
     <Flex
       ref={quoteRef}
       alignItems='center'
       justifyContent='center'
-      pb={20}
-      mt={{ base: 5, md: 20 }}
+      mt={{ base: 10, md: 20 }}
       w='100%'
     >
       <Box w='50%' display={{ base: 'none', md: 'flex' }}>
@@ -98,7 +139,7 @@ const QuoteForm = ({ quoteRef }) => {
           <Text fontFamily='h' fontSize='50px' mb={5}>
             Get a Quote
           </Text>
-          <form onSubmit={handleSubmit(onSubmit, onError)}>
+          <form ref={form} onSubmit={handleSubmit(onSubmit)}>
             <FormControl variant='floating' isInvalid={errors.name}>
               <FormLabel htmlFor='name'>Full Name *</FormLabel>
               <Input id='name' placeholder='Enter Name...' {...register('name')} />
@@ -131,13 +172,27 @@ const QuoteForm = ({ quoteRef }) => {
 
             <FormControl mt={2} isInvalid={errors.userMessage}>
               <FormLabel htmlFor='userMessage'>Message *</FormLabel>
-              <Input id='userMessage' placeholder='Enter Message...' {...register('userMessage')} />
+              <Textarea
+                h={{ base: '20vh', md: '10vh', lg: '20vh' }}
+                isInvalid={errors.userMessage}
+                id='userMessage'
+                placeholder='Enter Message...'
+                {...register('userMessage')}
+              />
               <FormErrorMessage>
                 {errors.userMessage && errors.userMessage.message}
               </FormErrorMessage>
             </FormControl>
 
-            <Button mt={4} bgColor='white' color='black' isLoading={isSubmitting} type='submit'>
+            <Button
+              size={{ base: 'md', md: 'lg' }}
+              w='100%'
+              mt={4}
+              bgColor='white'
+              color='black'
+              isLoading={loading}
+              type='submit'
+            >
               Submit
             </Button>
           </form>

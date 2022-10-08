@@ -23,9 +23,9 @@ import ServiceMenu from './ServiceMenu';
 const Navbar = ({ quoteRef }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const NavItem = ({ children, to }) => {
+  const NavItem = ({ children, to, onClick }) => {
     return (
-      <Link to={to}>
+      <Link to={to} onClick={onClick}>
         <Text className='hover-underline-animation' color='white' fontSize='17px'>
           {children}
         </Text>
@@ -37,14 +37,13 @@ const Navbar = ({ quoteRef }) => {
     quoteRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const handleNavClick = () => {
+    onClose();
+  };
+
   return (
     <>
       {/* Desktop Navbar */}
-      {/* <Flex bgColor='brand.200'>
-        <Text ml='auto' py={1} pr={5} as='b'>
-          We are here to help 24*7
-        </Text>
-      </Flex> */}
       <Box
         justifyContent='space-between'
         p={5}
@@ -57,15 +56,13 @@ const Navbar = ({ quoteRef }) => {
         shadow='2xl'
       >
         <Text fontSize='20px' as='b' mt='1' color='white'>
-          Epic Cleaning
+          Epic Cleaning.
         </Text>
         <HStack spacing={8}>
           <NavItem to='/'>HOME</NavItem>
-          <NavItem>ABOUT US</NavItem>
+          <NavItem to='/about'>ABOUT US</NavItem>
           <ServiceMenu />
-          <a href='tel:080080056'>
-            <IconButton rounded='full' icon={<FaPhoneAlt />} />
-          </a>
+          <IconButton as='a' href='tel:080080056' rounded='full' icon={<FaPhoneAlt />} />
           <Button onClick={handleScroll}>Get Quote</Button>
         </HStack>
       </Box>
@@ -76,9 +73,14 @@ const Navbar = ({ quoteRef }) => {
         p={5}
         bgColor='brand.100'
         display={{ base: 'flex', md: 'none' }}
+        position='sticky'
+        top='0'
+        w='100%'
+        zIndex={5}
+        shadow='2xl'
       >
         <Text fontSize='22px' as='b' mt='1' color='white'>
-          Epic Cleaning
+          Epic Cleaning.
         </Text>
         <Box>
           <a href='tel:080080056'>
@@ -98,9 +100,13 @@ const Navbar = ({ quoteRef }) => {
             <Divider />
             <DrawerBody mt='4'>
               <VStack spacing='7' alignItems='flex-start'>
-                <NavItem to='/'>HOME</NavItem>
+                <NavItem onClick={handleNavClick} to='/'>
+                  HOME
+                </NavItem>
                 <Divider />
-                <NavItem>ABOUT US</NavItem>
+                <NavItem onClick={handleNavClick} to='/about'>
+                  ABOUT US
+                </NavItem>
                 <Divider />
                 <NavItem>SERVICES</NavItem>
                 <Divider />
@@ -113,9 +119,9 @@ const Navbar = ({ quoteRef }) => {
                   Get Quote
                 </Button>
                 <Divider />
-                <a href='tel:080080056'>
-                  <Button leftIcon={<FaPhoneAlt />}>Call Now!</Button>
-                </a>
+                <Button as='a' href='tel:080080056' leftIcon={<FaPhoneAlt />}>
+                  Call Now!
+                </Button>
                 <Divider />
               </VStack>
             </DrawerBody>

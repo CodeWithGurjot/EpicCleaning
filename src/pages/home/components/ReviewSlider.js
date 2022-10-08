@@ -1,12 +1,18 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
-import reviews from '../data/reviews.json';
-import StarsImg from '../assets/stars.png';
-import { Carousel } from './Carousel';
+import reviews from '../../../data/reviews.json';
+import StarsImg from '../assets/images/stars.png';
+import { Carousel } from '../../../components/Carousel';
 
 const ReviewSlider = () => {
   return (
-    <Flex mt={20} pb={12} justifyContent='center' alignItems='center' flexDirection='column'>
+    <Flex
+      mt={{ base: 10, md: 20 }}
+      pb={12}
+      justifyContent='center'
+      alignItems='center'
+      flexDirection='column'
+    >
       <Flex justifyContent='center' flexDirection='column' alignItems='center'>
         <Text ml={{ base: 10 }} fontFamily='h' fontSize={{ base: '40px', md: '50px' }}>
           Let customers speak for us

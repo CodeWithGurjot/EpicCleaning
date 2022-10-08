@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Divider, Image, Text } from '@chakra-ui/react';
-import data from '../data/servicedata.json';
-import { Carousel } from './Carousel';
+import data from '../../../data/servicecard.json';
+import { Carousel } from '../../../components/Carousel';
 
 const SeviceSlider = () => {
   const handleServices = (title) => {
@@ -9,7 +9,13 @@ const SeviceSlider = () => {
   };
 
   return (
-    <Box mt={20} alignItems='center' w='100%' display='flex' flexDirection='column'>
+    <Box
+      mt={{ base: 10, md: 20 }}
+      alignItems='center'
+      w='100%'
+      display='flex'
+      flexDirection='column'
+    >
       <Box
         bgColor='brand.100'
         alignItems='center'
