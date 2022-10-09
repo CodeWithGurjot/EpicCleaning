@@ -2,12 +2,9 @@ import React from 'react';
 import { Box, Divider, Image, Text } from '@chakra-ui/react';
 import data from '../../../data/servicecard.json';
 import { Carousel } from '../../../components/Carousel';
+import { Link } from 'react-router-dom';
 
 const SeviceSlider = () => {
-  const handleServices = (title) => {
-    console.log(title);
-  };
-
   return (
     <Box
       mt={{ base: 10, md: 20 }}
@@ -33,7 +30,8 @@ const SeviceSlider = () => {
           <Carousel>
             {data.map((d) => (
               <Box
-                onClick={() => handleServices(d.title)}
+                as={Link}
+                to={`/services/${d.id}`}
                 cursor='pointer'
                 m={8}
                 key={d.id}

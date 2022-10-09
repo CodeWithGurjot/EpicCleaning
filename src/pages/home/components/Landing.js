@@ -2,13 +2,10 @@ import { Box, Button, Flex, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web/build/player/lottie_light';
 import animation from '../assets/animations/cleaning.json';
+import { Link } from 'react-router-dom';
 
 const Landing = ({ quoteRef }) => {
   const animationInstance = useRef(null);
-
-  const handleScroll = () => {
-    quoteRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   useEffect(() => {
     const animationData = JSON.stringify(animation);
@@ -55,7 +52,8 @@ const Landing = ({ quoteRef }) => {
         </Text>
         <Flex mt={8} mr='auto'>
           <Button
-            onClick={handleScroll}
+            as={Link}
+            to='/contact'
             size={{ base: 'md', md: 'lg' }}
             bg='brand.100'
             color='white'
@@ -64,6 +62,8 @@ const Landing = ({ quoteRef }) => {
             Get a Free Quote
           </Button>
           <Button
+            as={Link}
+            to='/services'
             size={{ base: 'md', md: 'lg' }}
             ml={4}
             bg='brand.200'

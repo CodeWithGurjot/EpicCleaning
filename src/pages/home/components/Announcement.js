@@ -3,7 +3,13 @@ import React from 'react';
 
 const Announcement = () => {
   return (
-    <Flex mt={{ base: 10, md: 20 }} alignItems='center' justifyContent='center' width='100%'>
+    <Flex
+      mt={10}
+      //  mt={{ base: 10, md: 20 }}
+      alignItems='center'
+      justifyContent='center'
+      width='100%'
+    >
       <Text
         bgColor='brand.200'
         borderRadius={20}

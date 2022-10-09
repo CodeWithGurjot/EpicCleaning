@@ -18,9 +18,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { FiMenu } from 'react-icons/fi';
-import ServiceMenu from './ServiceMenu';
 
-const Navbar = ({ quoteRef }) => {
+const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const NavItem = ({ children, to, onClick }) => {
@@ -31,10 +30,6 @@ const Navbar = ({ quoteRef }) => {
         </Text>
       </Link>
     );
-  };
-
-  const handleScroll = () => {
-    quoteRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const handleNavClick = () => {
@@ -55,15 +50,17 @@ const Navbar = ({ quoteRef }) => {
         zIndex={5}
         shadow='2xl'
       >
-        <Text fontSize='20px' as='b' mt='1' color='white'>
+        <Text fontSize='20px' fontWeight='700' as={Link} to='/' mt='1' color='white'>
           Epic Cleaning.
         </Text>
         <HStack spacing={8}>
           <NavItem to='/'>HOME</NavItem>
           <NavItem to='/about'>ABOUT US</NavItem>
-          <ServiceMenu />
+          <NavItem to='/services'>SERVICES</NavItem>
           <IconButton as='a' href='tel:080080056' rounded='full' icon={<FaPhoneAlt />} />
-          <Button onClick={handleScroll}>Get Quote</Button>
+          <Button as={Link} to='/contact'>
+            Get Quote
+          </Button>
         </HStack>
       </Box>
 
@@ -79,7 +76,7 @@ const Navbar = ({ quoteRef }) => {
         zIndex={5}
         shadow='2xl'
       >
-        <Text fontSize='22px' as='b' mt='1' color='white'>
+        <Text fontSize='22px' fontWeight='700' as={Link} to='/' mt='1' color='white'>
           Epic Cleaning.
         </Text>
         <Box>
@@ -108,14 +105,11 @@ const Navbar = ({ quoteRef }) => {
                   ABOUT US
                 </NavItem>
                 <Divider />
-                <NavItem>SERVICES</NavItem>
+                <NavItem onClick={handleNavClick} to='/services'>
+                  SERVICES
+                </NavItem>
                 <Divider />
-                <Button
-                  onClick={() => {
-                    handleScroll();
-                    onClose();
-                  }}
-                >
+                <Button as={Link} to='/contact' onClick={handleNavClick}>
                   Get Quote
                 </Button>
                 <Divider />

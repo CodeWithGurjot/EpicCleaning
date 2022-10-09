@@ -1,7 +1,28 @@
-import { Box, Flex, Image, Text } from '@chakra-ui/react';
-import React from 'react';
+import { Box, Flex, Text } from '@chakra-ui/react';
+import React, { useEffect, useRef } from 'react';
+import animation from '../assets/animations/contactus.json';
+import lottie from 'lottie-web/build/player/lottie_light';
 
 const AboutCard = () => {
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    const animationData = JSON.stringify(animation);
+    const anim = lottie.loadAnimation({
+      container: animationInstance.current,
+      animationData: JSON.parse(animationData),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+    });
+    return () => {
+      anim.stop();
+      anim.destroy();
+      lottie.stop();
+      lottie.destroy();
+    };
+  }, []);
+
   return (
     <Flex alignItems='center' justifyContent='center' mt={{ base: 10, md: 20 }}>
       <Flex
@@ -16,12 +37,12 @@ const AboutCard = () => {
         alignItems='center'
         bgColor='brand.200'
       >
-        <Image
-          h={{ base: '40vh', md: 'full' }}
-          borderRadius={10}
-          src='images/house.png'
-          w={{ base: '95%', lg: '40%' }}
-        />
+        <Box
+          ref={animationInstance}
+          objectFit='cover'
+          w={{ base: '100%', md: '50%' }}
+          height={{ base: '30vh', md: '60vh' }}
+        ></Box>
         <Box mt={{ base: 5, lg: 0 }} w={{ base: '95%', lg: '55%' }}>
           <Text fontFamily='h' fontSize={{ base: '25px', md: '28px' }}>
             Guaranteed customer satisfaction through innovative cleaning approach and well-suited

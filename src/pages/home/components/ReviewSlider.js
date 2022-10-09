@@ -14,7 +14,7 @@ const ReviewSlider = () => {
       flexDirection='column'
     >
       <Flex justifyContent='center' flexDirection='column' alignItems='center'>
-        <Text ml={{ base: 10 }} fontFamily='h' fontSize={{ base: '40px', md: '50px' }}>
+        <Text textAlign='center' fontFamily='h' fontSize={{ base: '40px', md: '50px' }}>
           Let customers speak for us
         </Text>
         <Image mt={-3} boxSize={{ base: '40%', md: '20%' }} src={StarsImg} />

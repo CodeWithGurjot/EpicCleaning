@@ -116,7 +116,8 @@ const QuoteForm = ({ quoteRef }) => {
       ref={quoteRef}
       alignItems='center'
       justifyContent='center'
-      mt={{ base: 10, md: 20 }}
+      // mt={{ base: 10, md: 20 }}
+      mt={10}
       w='100%'
     >
       <Box w='50%' display={{ base: 'none', md: 'flex' }}>
