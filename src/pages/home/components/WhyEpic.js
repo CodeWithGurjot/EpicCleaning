@@ -7,12 +7,12 @@ const WhyEpic = () => {
   const WhyCard = ({ icon, title, content }) => {
     return (
       <Flex
-        mt={5}
+        mt={8}
         bgColor='white'
         py={5}
         px={2}
         ml='5%'
-        brightness
+        minH='40vh'
         w='90%'
         justifyContent='center'
         alignItems='center'
@@ -31,9 +31,10 @@ const WhyEpic = () => {
           {title}
         </Text>
         <Text
+          mt={1}
           textAlign='center'
           fontFamily='p'
-          fontSize={{ base: '15px', md: '20px' }}
+          fontSize={{ base: '17px', md: '20px' }}
           w={{ base: '80%', md: '75%' }}
         >
           {content}
@@ -43,13 +44,7 @@ const WhyEpic = () => {
   };
 
   return (
-    <Box
-      mt={{ base: 10, md: 20 }}
-      display='flex'
-      flexDirection='column'
-      justifyContent='center'
-      alignItems='center'
-    >
+    <Box mt={10} display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
       <Text color='brand.100' fontFamily='h' fontSize={{ base: '40px', md: '60px' }}>
         Why Epic Cleaning
       </Text>
@@ -62,7 +57,7 @@ const WhyEpic = () => {
         <WhyCard
           icon={BsPeopleFill}
           title='Trained and Licenced Staff'
-          content="We have a fully trained, polite and honest staff. So you don't have to worry about anything."
+          content="We have a fully trained, polite and honest staff. So you don't have to worry about anything at all."
         />
         <WhyCard
           icon={FaThumbsUp}

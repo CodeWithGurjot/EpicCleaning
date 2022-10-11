@@ -4,10 +4,9 @@ import PhilosophyImg from '../assets/images/about-cleaning.jpg';
 
 const Philosophy = () => {
   return (
-    <Flex alignItems='center' justifyContent='center' mt={{ base: 10, md: 20 }}>
+    <Flex alignItems='center' justifyContent='center' mt={16}>
       <Flex
         direction={{ base: 'column', lg: 'row' }}
-        // h={{ base: 'auto', md: '90vh' }}
         p={{ base: 2, md: 5 }}
         py={5}
         w='90%'
@@ -15,10 +14,10 @@ const Philosophy = () => {
         alignItems='center'
       >
         <Box w={{ base: '100%', lg: '50%' }}>
-          <Text fontFamily='h' fontSize={{ base: '25px', md: '40px' }}>
+          <Text fontFamily='h' fontSize={{ base: '30px', md: '60px' }}>
             Our work philosophy.
           </Text>
-          <Text mt={5} fontFamily='p' fontSize={{ base: '16px', md: '18px' }}>
+          <Text mt={2} fontFamily='p' fontSize={{ base: '18px', md: '22px' }}>
             An immense amount of hard work and innovation has gone into helping Epic Cleaning
             Services achieve the status that we enjoy today in the market. We employ innovative
             techniques and club them with a customer-oriented approach to craft a bespoke cleaning

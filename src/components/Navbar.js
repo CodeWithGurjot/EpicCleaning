@@ -25,7 +25,7 @@ const Navbar = () => {
   const NavItem = ({ children, to, onClick }) => {
     return (
       <Link to={to} onClick={onClick}>
-        <Text className='hover-underline-animation' color='white' fontSize='17px'>
+        <Text className='hover-underline-animation' color='white' fontSize='18px'>
           {children}
         </Text>
       </Link>
@@ -50,7 +50,7 @@ const Navbar = () => {
         zIndex={5}
         shadow='2xl'
       >
-        <Text fontSize='20px' fontWeight='700' as={Link} to='/' mt='1' color='white'>
+        <Text fontSize='22px' fontWeight='700' as={Link} to='/' mt='1' color='white'>
           Epic Cleaning.
         </Text>
         <HStack spacing={8}>

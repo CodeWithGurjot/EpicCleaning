@@ -24,10 +24,9 @@ const AboutCard = () => {
   }, []);
 
   return (
-    <Flex alignItems='center' justifyContent='center' mt={{ base: 10, md: 20 }}>
+    <Flex alignItems='center' justifyContent='center' mt={16}>
       <Flex
         direction={{ base: 'column', lg: 'row' }}
-        h={{ base: 'auto', lg: '60vh' }}
         p={{ base: 2, md: 5 }}
         py={5}
         borderRadius={20}
@@ -37,18 +36,13 @@ const AboutCard = () => {
         alignItems='center'
         bgColor='brand.200'
       >
-        <Box
-          ref={animationInstance}
-          objectFit='cover'
-          w={{ base: '100%', md: '50%' }}
-          height={{ base: '30vh', md: '60vh' }}
-        ></Box>
+        <Box ref={animationInstance} objectFit='cover' w={{ base: '100%', md: '50%' }}></Box>
         <Box mt={{ base: 5, lg: 0 }} w={{ base: '95%', lg: '55%' }}>
-          <Text fontFamily='h' fontSize={{ base: '25px', md: '28px' }}>
+          <Text fontFamily='h' fontSize={{ base: '25px', md: '35px' }}>
             Guaranteed customer satisfaction through innovative cleaning approach and well-suited
             equipment marks our success in the industry.
           </Text>
-          <Text mt={5} fontFamily='p' fontSize={{ base: '16px', md: '16px' }}>
+          <Text mt={2} fontFamily='p' fontSize={{ base: '16px', md: '20px' }}>
             We have a strong affinity for excellence which drives us to accomplish the challenging
             aspects of our job and raise the standards of quality in our industry. Not just
             residential and office properties, but Epic Cleaning Services has had the chance to work

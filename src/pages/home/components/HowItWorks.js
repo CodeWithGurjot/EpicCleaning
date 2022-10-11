@@ -14,16 +14,22 @@ const HowItWorks = () => {
         p={5}
         bgColor='white'
         borderRadius='2xl'
-        shadow='2xl'
+        shadow='xl'
         display='flex'
         flexDirection='column'
         mb={6}
       >
         <Icon as={icon} w='80px' h='80px' />
-        <Text textAlign='center' mt={5} fontFamily='h' as='b'>
+        <Text
+          textAlign='center'
+          mt={5}
+          fontSize={{ base: '18px', md: '20px' }}
+          fontFamily='h'
+          as='b'
+        >
           {title}
         </Text>
-        <Text textAlign='center' fontFamily='p'>
+        <Text fontSize={{ base: '16px', md: '18px' }} textAlign='center' fontFamily='p'>
           {content}
         </Text>
       </Box>
@@ -33,7 +39,7 @@ const HowItWorks = () => {
   return (
     <Flex alignItems='center' direction='column' justifyContent='center'>
       <Flex
-        shadow='2xl'
+        shadow='xl'
         bgColor='brand.200'
         w={{ base: '90%', lg: '85%' }}
         borderRadius='2xl'
@@ -43,10 +49,10 @@ const HowItWorks = () => {
         m={5}
       >
         <Flex p={5} direction='column' mt={4}>
-          <Text alignSelf='center' fontSize={{ base: '4xl', md: '5xl' }} fontFamily='h'>
+          <Text alignSelf='center' fontSize={{ base: '45px', md: '60px' }} fontFamily='h'>
             How it works
           </Text>
-          <Text fontFamily='p' ml={{ base: '5%', md: '0' }}>
+          <Text fontFamily='p' textAlign='center' fontSize={{ base: '18px', md: '22px' }}>
             We'll clean your home/office on reccuring basis or one time clean. Customer satisfaction
             is our priority.
           </Text>

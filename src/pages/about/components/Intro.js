@@ -3,7 +3,7 @@ import React from 'react';
 
 const Intro = () => {
   return (
-    <Flex mt={'14'} direction='column' alignItems='center' px={10} justifyContent='center'>
+    <Flex mt={12} direction='column' alignItems='center' px={10} justifyContent='center'>
       <Text
         fontWeight='600'
         fontFamily='h'

@@ -4,7 +4,7 @@ import lottie from 'lottie-web/build/player/lottie_light';
 import animation from '../assets/animations/cleaning.json';
 import { Link } from 'react-router-dom';
 
-const Landing = ({ quoteRef }) => {
+const Landing = () => {
   const animationInstance = useRef(null);
 
   useEffect(() => {
@@ -31,20 +31,18 @@ const Landing = ({ quoteRef }) => {
         flexDirection='column'
         pl={{ base: 5, md: 8 }}
         display='flex'
-        alignItems='center'
         justifyContent='center'
       >
         <Text
           color={useColorModeValue('green.800')}
           fontFamily='h'
-          fontSize={{ base: '48px', md: '5xl' }}
+          fontSize={{ base: '48px', md: '60px' }}
           fontWeight='bold'
           display='flex'
-          alignItems='flex-start'
         >
           Highest rated cleaning service in Tauranga
         </Text>
-        <Text fontFamily='p' fontSize={{ base: 'lg', md: 'xl' }} mt={2}>
+        <Text fontFamily='p' fontSize={{ base: '18px', md: '23px' }} mt={2}>
           A trusted company specialized in all types of cleaning services. Our professional cleaning
           service will take care of everything. You just come home,
           <span style={{ fontWeight: 'bold' }}> smile</span>, and

@@ -6,24 +6,22 @@ import { Link } from 'react-router-dom';
 
 const SeviceSlider = () => {
   return (
-    <Box
-      mt={{ base: 10, md: 20 }}
-      alignItems='center'
-      w='100%'
-      display='flex'
-      flexDirection='column'
-    >
+    <Box mt={16} alignItems='center' w='100%' display='flex' flexDirection='column'>
       <Box
         bgColor='brand.100'
         alignItems='center'
         flexDirection='column'
-        pt={5}
         display='flex'
         w='100%'
         justifyContent='center'
       >
-        <Text mt={12} color='white' fontSize='5xl' fontFamily='h'>
-          Services
+        <Text
+          mt={{ base: 5, md: 16 }}
+          color='white'
+          fontSize={{ base: '45px', md: '60px' }}
+          fontFamily='h'
+        >
+          Our Services
         </Text>
         <Divider w='90%' />
         <Box width={{ base: '85%', md: '90%' }} mt={4} mb={5}>
