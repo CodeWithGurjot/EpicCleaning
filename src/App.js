@@ -1,5 +1,5 @@
 import { Box, useColorModeValue } from '@chakra-ui/react';
-import React, { useRef } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
@@ -10,13 +10,12 @@ import Services from './pages/services';
 import SingleService from './pages/services/components/SingleService';
 
 const App = () => {
-  const quoteRef = useRef(null);
   return (
     <Box minH='100vh' w='100%' bgColor={useColorModeValue('gray.100')}>
-      <Navbar quoteRef={quoteRef} />
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Home quoteRef={quoteRef} />} />
-        <Route exact path='/about' element={<About quoteRef={quoteRef} />} />
+        <Route path='/' element={<Home />} />
+        <Route exact path='/about' element={<About />} />
         <Route exact path='/services' element={<Services />} />
         <Route exact path='/services/:id' element={<SingleService />} />
         <Route exact path='/contact' element={<Contact />} />

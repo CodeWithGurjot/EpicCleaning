@@ -1,6 +1,6 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
 import React from 'react';
-import PhilosophyImg from '../assets/images/about-cleaning.jpg';
+import AboutImg from '../assets/images/about-cleaning.png';
 
 const Philosophy = () => {
   return (
@@ -36,9 +36,9 @@ const Philosophy = () => {
         </Box>
         <Image
           mt={{ base: 5, lg: 0 }}
-          h={{ base: '50vh', lg: 'full' }}
+          h={{ base: '50vh', lg: '90vh' }}
           borderRadius={10}
-          src={PhilosophyImg}
+          src={AboutImg}
           w={{ base: '100%', lg: '40%' }}
         />
       </Flex>
