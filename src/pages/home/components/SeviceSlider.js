@@ -45,7 +45,7 @@ const SeviceSlider = () => {
                 h={{ base: '440px', lg: '440px', xl: '460px' }}
                 ml='10px'
               >
-                <Image w='100%' h='240px' borderRadius={10} mb={8} src={d.image} />
+                <Image loading='lazy' w='100%' h='240px' borderRadius={10} mb={8} src={d.image} />
                 <Text mt={5} fontFamily='h' as='b'>
                   {d.title}
                 </Text>
