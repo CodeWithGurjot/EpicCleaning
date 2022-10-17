@@ -29,7 +29,7 @@ const SeviceSlider = () => {
             {data.map((d) => (
               <Box
                 as={Link}
-                to={`/services/${d.id}`}
+                to={`/services/${d.link}`}
                 cursor='pointer'
                 m={8}
                 key={d.id}
