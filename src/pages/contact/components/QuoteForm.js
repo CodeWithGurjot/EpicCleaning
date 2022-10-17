@@ -34,8 +34,8 @@ const QuoteForm = ({ quoteRef }) => {
         .string()
         .matches(phoneRegEx, 'Invalid Phone Number')
         .required('This feild is Required')
-        .min(10, 'Invalid Phone Number')
-        .max(10, 'Invalid Phone Number'),
+        .min(9, 'Invalid Phone Number')
+        .max(13, 'Invalid Phone Number'),
       address: yup.string().required('This feild is Required'),
       zip: yup
         .number()
