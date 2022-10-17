@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import lottie from 'lottie-web/build/player/lottie_light';
 import animation from '../assets/animations/contact.json';
 import emailjs from '@emailjs/browser';
 import {
@@ -17,9 +16,9 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
+import Animation from '../../../components/Animation';
 
-const QuoteForm = ({ quoteRef }) => {
-  const animationInstance = useRef(null);
+const QuoteForm = () => {
   const form = useRef();
 
   const [loading, setLoading] = useState(false);
@@ -54,23 +53,6 @@ const QuoteForm = ({ quoteRef }) => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  useEffect(() => {
-    const animationData = JSON.stringify(animation);
-    const anim = lottie.loadAnimation({
-      container: animationInstance.current,
-      animationData: JSON.parse(animationData),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-    });
-    return () => {
-      anim.stop();
-      anim.destroy();
-      lottie.stop();
-      lottie.destroy();
-    };
-  }, []);
 
   const toast = useToast();
 
@@ -113,7 +95,6 @@ const QuoteForm = ({ quoteRef }) => {
 
   return (
     <Flex
-      ref={quoteRef}
       alignItems='center'
       justifyContent='center'
       // mt={{ base: 10, md: 20 }}
@@ -121,7 +102,7 @@ const QuoteForm = ({ quoteRef }) => {
       w='100%'
     >
       <Box w='50%' display={{ base: 'none', md: 'flex' }}>
-        <Box ref={animationInstance} objectFit='cover' w='100%' h='100%'></Box>
+        <Animation animation={animation} />
       </Box>
       <Box
         display='flex'
