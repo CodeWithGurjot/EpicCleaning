@@ -1,16 +1,22 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import data from '../../../data/services.json';
 
-const SingleService = () => {
-  const { id } = useParams();
-  const dIndex = id - 1;
-
+const SingleService = ({
+  title,
+  content,
+  title2,
+  content2,
+  title3,
+  content3,
+  cardTitle,
+  cardContent,
+  title4,
+  content4,
+}) => {
   return (
     <Flex mt={12} direction='column' alignItems='center' justifyContent='center'>
       <Text textAlign='center' as='b' fontFamily='h' fontSize={{ base: '30px', md: '60px' }}>
-        {data[dIndex].title}
+        {title}
       </Text>
       <Text
         mt={2}
@@ -19,10 +25,10 @@ const SingleService = () => {
         fontSize={{ base: '18px', md: '20px' }}
         textAlign='center'
       >
-        {data[dIndex].content}
+        {content}
       </Text>
 
-      {data[dIndex]['title-2'] && (
+      {title2 && (
         <>
           <Text
             mt={16}
@@ -31,7 +37,7 @@ const SingleService = () => {
             fontFamily='h'
             fontSize={{ base: '30px', md: '35px' }}
           >
-            {data[dIndex]['title-2']}
+            {title2}
           </Text>
           <Text
             mt={2}
@@ -40,12 +46,12 @@ const SingleService = () => {
             fontSize={{ base: '18px', md: '20px' }}
             textAlign='center'
           >
-            {data[dIndex]['content-2']}
+            {content2}
           </Text>
         </>
       )}
 
-      {data[dIndex]['title-3'] && (
+      {title3 && (
         <>
           <Text
             mt={16}
@@ -54,7 +60,7 @@ const SingleService = () => {
             fontFamily='h'
             fontSize={{ base: '30px', md: '35px' }}
           >
-            {data[dIndex]['title-3']}
+            {title3}
           </Text>
           <Text
             mt={2}
@@ -63,7 +69,7 @@ const SingleService = () => {
             fontSize={{ base: '18px', md: '20px' }}
             textAlign='center'
           >
-            {data[dIndex]['content-3']}
+            {content3}
           </Text>
         </>
       )}
@@ -72,15 +78,15 @@ const SingleService = () => {
         {/* <Image w='48%' borderRadius={10} src={data[dIndex].image} /> */}
         <Box w='100%'>
           <Text textAlign='center' fontFamily='h' fontSize={{ base: '30px', md: '35px' }}>
-            {data[dIndex]['card-title']}
+            {cardTitle}
           </Text>
           <Text textAlign='center' mt={2} fontFamily='p' fontSize={{ base: '18px', md: '20px' }}>
-            {data[dIndex]['card-content']}
+            {cardContent}
           </Text>
         </Box>
       </Flex>
 
-      {data[dIndex]['title-4'] && (
+      {title4 && (
         <>
           <Text
             mt={16}
@@ -89,10 +95,10 @@ const SingleService = () => {
             fontFamily='h'
             fontSize={{ base: '30px', md: '35px' }}
           >
-            {data[dIndex]['title-4']}
+            {title4}
           </Text>
           <Text w='88%' fontFamily='p' fontSize={{ base: '18px', md: '20px' }} textAlign='center'>
-            {data[dIndex]['content-4']}
+            {content4}
           </Text>
         </>
       )}

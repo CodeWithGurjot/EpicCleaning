@@ -30,7 +30,7 @@ const ServiceCard = () => {
           </Text>
           <Button
             as={Link}
-            to={`/services/${d.id}`}
+            to={`/services/${d.link}`}
             bgColor='brand.100'
             color='white'
             _hover={{ bgColor: '#8CC63E', color: 'black' }}
